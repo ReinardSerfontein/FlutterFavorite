@@ -1,7 +1,9 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
+//////MAIN CLASS FOR RUNNING THE APP////////
 void main() {
   runApp(MyApp());
 }
@@ -31,12 +33,17 @@ class MyAppState extends ChangeNotifier {
 
   GlobalKey? historyListKey;
 
-  void getNext() {
+  Future<void> getNext() async {
     history.insert(0, current);
     var animatedList = historyListKey?.currentState as AnimatedListState?;
     animatedList?.insertItem(0);
     current = WordPair.random();
     notifyListeners();
+
+    var response = await http.post(
+      Uri.parse('http://xxxxxxxxxx/CheckFlutterIsWorking'),
+    );
+    print(response.body);
   }
 
   var favorites = <WordPair>[];
