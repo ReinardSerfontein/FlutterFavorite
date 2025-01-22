@@ -1,2 +1,7 @@
-# FlutterFavorite
-This repository i created for the purpose of learning and playing around with Flutter
+# namer_app
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
